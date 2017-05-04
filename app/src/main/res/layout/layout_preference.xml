@@ -1,0 +1,36 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:paddingBottom="@dimen/small_padding"
+    android:paddingLeft="@dimen/small_padding"
+    android:paddingRight="@dimen/small_padding"
+    android:paddingTop="@dimen/small_padding"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/transparent"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_below="@+id/appbar"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

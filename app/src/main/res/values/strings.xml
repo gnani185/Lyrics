@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Reegan Gomez</string>
+    <string name="book">ஆராதனை ஆறுதல் கீதங்கள்</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="label_settings">Settings</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="no_data_available">No Songs available</string>
+    <string name="title_activity_song">SongActivity</string>
+    <string name="song">Song</string>
+    <string name="preference_name">LyricsPreference</string>
+    <string name="key_favorites">favorites_key</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Home">Home</string>
+    <string name="favorites">Favorites</string>
+
+    <!-- Toolbar titles when navigation menu item is selected -->
+    <string-array name="nav_item_activity_titles">
+        <item>Home</item>
+        <item>Favorites</item>
+    </string-array>
+    <string name="title_activity_fullscreen_view">FullscreenViewActivity</string>
+    <string name="search_hint">Search Songs</string>
+    <string name="search">Search</string>
+    <string name="title_activity_changes">Settings</string>
+    <string name="key_app_theme">pref_app_theme</string>
+    <string name="action_feedback">Report a Problem</string>
+
+
+    <string-array name="themeNames">
+        <item>Default</item>
+        <item>Red</item>
+        <item>Blue</item>
+    </string-array>
+</resources>

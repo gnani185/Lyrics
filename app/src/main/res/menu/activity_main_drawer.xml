@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single" android:id="@+id/drawer_menu">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="@string/Home" />
+        <item
+            android:id="@+id/nav_favorite"
+            android:icon="@drawable/ic_favorite"
+            android:title="@string/favorites" />
+        <!--<item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Slideshow" />
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Tools" />-->
+    </group>
+
+    <group android:checkableBehavior="none" android:id="@+id/drawer_feedback">
+        <item
+            android:id="@+id/nav_feedback"
+            android:icon="@drawable/ic_bug_report"
+            android:title="@string/action_feedback" />
+    </group>
+
+    <group android:checkableBehavior="none" android:id="@+id/drawer_settings">
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/action_settings" />
+    </group>
+
+    <group android:checkableBehavior="none" android:id="@+id/drawer_extra">
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/ic_menu_share"
+            android:checkable="false"
+            android:title="Share" />
+        <item
+            android:id="@+id/nav_rate"
+            android:icon="@drawable/ic_thumb_up"
+            android:checkable="false"
+            android:title="Rate" />
+    </group>
+
+</menu>
