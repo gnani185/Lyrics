@@ -12,18 +12,21 @@ import android.view.View;
 
 import com.devsparkles.lyrics.adapter.SongsScreenAdapter;
 import com.devsparkles.lyrics.beans.Song;
+import com.devsparkles.lyrics.comparator.SongComparator;
 import com.devsparkles.lyrics.utils.FavUtil;
 import com.devsparkles.lyrics.utils.SongUtil;
 import com.devsparkles.lyrics.utils.ThemeUtil;
 
+import java.util.Collections;
 import java.util.List;
 
 public class SongScreenActivity extends AppCompatActivity {
+    MenuItem item;
     private ViewPager viewPager;
     private SongsScreenAdapter adapter;
     private Song song;
     private List<Song> songs;
-    MenuItem item;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,31 +41,34 @@ public class SongScreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(SongScreenActivity.this, FullscreenLyricActivity.class);
-                i.putExtra("position", song.getId());
+                i.putExtra("song", song);
                 startActivity(i);
             }
         });
 
         viewPager = (ViewPager) findViewById(R.id.pager);
         songs = SongUtil.getSongs(getApplicationContext()).getSongs();
+        //Sorting it since HomeFragment shows sorted order
+        Collections.sort(songs, new SongComparator());
         adapter = new SongsScreenAdapter(SongScreenActivity.this,
                 songs);
 
         song = (Song) getIntent().getSerializableExtra("song");
-        song = SongUtil.getSong(getApplicationContext(),song.getId());
+        int position = getIntent().getIntExtra("position", 1);
+        //song = SongUtil.getSong(getApplicationContext(),song.getId());
         setTitle(song.getName());
         viewPager.setAdapter(adapter);
         // displaying selected image first
-        viewPager.setCurrentItem(Integer.parseInt(song.getId())-1);
+        viewPager.setCurrentItem(position);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                song = SongUtil.getSong(getApplicationContext(),songs.get(position).getId());
+                song = songs.get(position);//SongUtil.getSong(getApplicationContext(),songs.get(position).getId());
             }
 
             @Override
             public void onPageSelected(int position) {
-                song = SongUtil.getSong(getApplicationContext(),songs.get(position).getId());
+                song = songs.get(position);//SongUtil.getSong(getApplicationContext(),songs.get(position).getId());
                 setTitle(song.getName());
                 if (item != null) {
                     if (song != null) {

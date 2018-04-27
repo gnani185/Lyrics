@@ -1,10 +1,9 @@
 package com.devsparkles.lyrics.utils;
 
 import android.content.Context;
-import android.view.View;
+import android.util.Log;
 
 import com.devsparkles.lyrics.R;
-import com.devsparkles.lyrics.adapter.SongsAdapter;
 import com.devsparkles.lyrics.beans.Song;
 import com.devsparkles.lyrics.beans.Songs;
 import com.google.gson.Gson;
@@ -14,7 +13,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -22,6 +20,7 @@ import java.util.Set;
  */
 public class SongUtil {
     public static Song getSong(Context context,String id) {
+        Log.i("SONGGGGGGGGGGGG", id);
         InputStream ip = context.getResources().openRawResource(context.getResources().getIdentifier("s" + id, "raw", context.getPackageName()));
         BufferedReader reader = null;
         try {

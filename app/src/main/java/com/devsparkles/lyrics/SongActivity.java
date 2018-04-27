@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import com.devsparkles.lyrics.beans.Song;
 import com.devsparkles.lyrics.utils.FavUtil;
-import com.devsparkles.lyrics.utils.SongUtil;
 import com.devsparkles.lyrics.utils.ThemeUtil;
 
 public class SongActivity extends AppCompatActivity {
@@ -39,7 +38,7 @@ public class SongActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         song = (Song) getIntent().getSerializableExtra("song");
-        song = SongUtil.getSong(getApplicationContext(),song.getId());
+        //song = SongUtil.getSong(getApplicationContext(),song.getId());
         setTitle(song.getName());
         TextView lyric = (TextView) findViewById(R.id.song);
         lyric.setText(TextUtils.join("\n\n", song.getLyrics()));

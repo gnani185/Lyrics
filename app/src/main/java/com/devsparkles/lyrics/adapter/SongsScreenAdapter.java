@@ -57,7 +57,7 @@ public class SongsScreenAdapter extends PagerAdapter{
                 false);
 
         lyric = (TextView) viewLayout.findViewById(R.id.song);
-        Song song = getSong(container.getContext(),songs.get(position).getId());
+        Song song = songs.get(position);//getSong(container.getContext(),songs.get(position).getId());
         lyric.setText(TextUtils.join("\n\n", song.getLyrics()));
         ((ViewPager) container).addView(viewLayout);
 

@@ -26,13 +26,13 @@ import com.devsparkles.lyrics.SongScreenActivity;
 import com.devsparkles.lyrics.adapter.SongsAdapter;
 import com.devsparkles.lyrics.beans.Song;
 import com.devsparkles.lyrics.beans.Songs;
+import com.devsparkles.lyrics.comparator.SongComparator;
 import com.devsparkles.lyrics.listener.ClickListener;
 import com.devsparkles.lyrics.listener.OnSearchListener;
 import com.devsparkles.lyrics.listener.RecyclerTouchListener;
 import com.devsparkles.lyrics.utils.FavUtil;
 import com.devsparkles.lyrics.utils.PrefUtil;
 import com.devsparkles.lyrics.utils.SongUtil;
-import com.devsparkles.lyrics.comparator.SongComparator;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -89,6 +89,7 @@ public class HomeFragment extends Fragment implements OnSearchListener {
             public void onClick(View view, int position) {
                 Intent songIntent = new Intent(getContext(), SongScreenActivity.class);
                 songIntent.putExtra("song", songs.get(position));
+                songIntent.putExtra("position", position);
                 startActivity(songIntent);
             }
 

@@ -21,24 +21,21 @@ import android.view.View;
 import com.devsparkles.lyrics.fragment.FavoritesFragment;
 import com.devsparkles.lyrics.fragment.HomeFragment;
 import com.devsparkles.lyrics.utils.ThemeUtil;
-import com.instabug.library.Instabug;
-import com.instabug.library.invocation.InstabugInvocationEvent;
-import com.instabug.library.invocation.InstabugInvocationMode;
+import com.webianks.easy_feedback.EasyFeedback;
 
 public class MainActivity extends AppCompatActivity{
 
-    private NavigationView navigationView;
-    private DrawerLayout drawer;
-    private Toolbar toolbar;
-    public static int navItemIndex = 0;
     // tags used to attach the fragments
     private static final String TAG_HOME = "home";
     private static final String TAG_PHOTOS = "photos";
     private static final String TAG_MOVIES = "movies";
     private static final String TAG_NOTIFICATIONS = "notifications";
     private static final String TAG_SETTINGS = "settings";
+    public static int navItemIndex = 0;
     public static String CURRENT_TAG = TAG_HOME;
-
+    private NavigationView navigationView;
+    private DrawerLayout drawer;
+    private Toolbar toolbar;
     // toolbar titles respected to selected nav menu item
     private String[] activityTitles;
 
@@ -53,9 +50,6 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        new Instabug.Builder(getApplication(), "0ae76627969a7e48986d2acd343c527f")
-                .setInvocationEvent(InstabugInvocationEvent.NONE)
-                .build();
         mHandler = new Handler();
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -234,7 +228,12 @@ public class MainActivity extends AppCompatActivity{
                         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getPackageName())));
                         break;
                     case R.id.nav_feedback:
-                        Instabug.invoke(InstabugInvocationMode.PROMPT_OPTION);
+                        //Instabug.invoke(InstabugInvocationMode.PROMPT_OPTION);
+                        new EasyFeedback.Builder(MainActivity.this)
+                                .withEmail("gnani185@gmail.com")
+                                .withSystemInfo()
+                                .build()
+                                .start();
                         break;
                     default:
                         navItemIndex = 0;

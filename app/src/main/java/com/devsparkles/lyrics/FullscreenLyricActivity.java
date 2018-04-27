@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.devsparkles.lyrics.adapter.FullScreenLyricsAdapter;
-import com.devsparkles.lyrics.utils.SongUtil;
+import com.devsparkles.lyrics.beans.Song;
 import com.devsparkles.lyrics.utils.ThemeUtil;
 
 import java.util.ArrayList;
@@ -27,10 +27,10 @@ public class FullscreenLyricActivity extends AppCompatActivity {
         viewPager = (ViewPager) findViewById(R.id.pager);
 
         Intent i = getIntent();
-        String position = i.getExtras().getString("position");
+        Song song = (Song) i.getSerializableExtra("song");
 
         adapter = new FullScreenLyricsAdapter(FullscreenLyricActivity.this,
-                (ArrayList<String>) SongUtil.getSong(getApplicationContext(),position).getLyrics());
+                (ArrayList<String>) song.getLyrics());
 
         viewPager.setAdapter(adapter);
 
